@@ -40,7 +40,3 @@ All personal/project content lives in `src/data/` — update it there rather tha
 ## Deployment
 
 Pushing to `main` triggers `.github/workflows/deploy.yml`, which builds the site and deploys `./dist` to GitHub Pages automatically.
-
-## 👀 Want to learn more?
-
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).

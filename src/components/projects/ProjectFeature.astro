@@ -35,6 +35,8 @@ const displayIndex = String(index).padStart(2, '0');
       {project.highlights.map((highlight) => <li>{highlight}</li>)}
     </ul>
 
+    <span class="project__status">{project.status}</span>
+
     <div class="project__actions">
       {
         project.liveUrl ? (
@@ -72,7 +74,6 @@ const displayIndex = String(index).padStart(2, '0');
   </div>
 
   <div class="project__panel">
-    <span class="project__status">{project.status}</span>
     <div class="project__tech-grid">
       {project.technologies.map((tech) => <TechChip item={tech} />)}
     </div>
@@ -147,7 +148,7 @@ const displayIndex = String(index).padStart(2, '0');
     display: flex;
     flex-wrap: wrap;
     gap: var(--space-3);
-    margin-top: var(--space-6);
+    margin-top: var(--space-4);
   }
 
   .project__panel {
@@ -158,8 +159,7 @@ const displayIndex = String(index).padStart(2, '0');
     display: flex;
     flex-direction: column;
     gap: var(--space-4);
-    align-self: stretch;
-    justify-content: center;
+    align-self: center;
     transition: border-color var(--transition-fast);
   }
 
@@ -168,13 +168,14 @@ const displayIndex = String(index).padStart(2, '0');
   }
 
   .project__status {
-    align-self: flex-start;
+    display: inline-block;
     font-size: 0.8rem;
     font-weight: 600;
     color: var(--color-text-muted);
     border: 1px solid var(--color-border);
     padding: 0.3rem 0.75rem;
     border-radius: var(--radius-full);
+    margin-top: var(--space-5);
   }
 
   .project__tech-grid {

@@ -4,7 +4,6 @@ export interface SocialLink {
   name: string;
   url: string;
   icon: 'github' | 'linkedin' | 'facebook' | 'x' | 'youtube';
-  emphasize?: boolean;
 }
 
 export const socialLinks: SocialLink[] = [
@@ -12,7 +11,6 @@ export const socialLinks: SocialLink[] = [
     name: 'GitHub',
     url: 'https://github.com/MohamedMamdoouh',
     icon: 'github',
-    emphasize: true,
   },
   {
     name: 'LinkedIn',

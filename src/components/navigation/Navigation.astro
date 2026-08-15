@@ -2,13 +2,16 @@
 import Icon from '../shared/Icon.astro';
 import ThemeToggle from '../shared/ThemeToggle.astro';
 import CVButton from '../shared/CVButton.astro';
+import Logo from '../shared/Logo.astro';
 import { navItems } from '../../data/nav';
 import { profile } from '../../data/profile';
 ---
 
 <header id="site-nav" class="nav">
   <div class="nav__inner container">
-    <a href="#home" class="nav__brand">{profile.name}</a>
+    <a href="#home" class="nav__brand" aria-label={`${profile.name} — Home`}>
+      <Logo />
+    </a>
 
     <nav class="nav__links" aria-label="Primary">
       <ul>
@@ -89,10 +92,8 @@ import { profile } from '../../data/profile';
   }
 
   .nav__brand {
-    font-weight: 700;
-    font-size: 1.05rem;
-    letter-spacing: -0.01em;
-    white-space: nowrap;
+    display: inline-flex;
+    align-items: center;
   }
 
   .nav__links {

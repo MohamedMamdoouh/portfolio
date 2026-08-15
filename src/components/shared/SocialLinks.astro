@@ -19,7 +19,7 @@ const { class: className = '', iconSize = 20 } = Astro.props;
           target="_blank"
           rel="noopener noreferrer"
           aria-label={link.name}
-          class:list={['social-link', { 'social-link--emphasis': link.emphasize }]}
+          class="social-link"
         >
           <BrandIcon slug={link.icon} size={iconSize} />
         </a>
@@ -54,15 +54,5 @@ const { class: className = '', iconSize = 20 } = Astro.props;
     color: var(--color-accent);
     border-color: var(--color-accent);
     transform: translateY(-2px);
-  }
-
-  .social-link--emphasis {
-    color: var(--color-text);
-    border-color: var(--color-text);
-  }
-
-  .social-link--emphasis:hover {
-    color: var(--color-accent);
-    border-color: var(--color-accent);
   }
 </style>

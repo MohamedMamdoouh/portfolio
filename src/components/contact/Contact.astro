@@ -18,7 +18,7 @@ const [emailUser, emailDomain] = profile.email.split('@');
     <div class="contact__card">
       <div class="contact__email-row">
         <span class="contact__email" data-email-user={emailUser} data-email-domain={emailDomain}>
-          <span>{emailUser}</span><span aria-hidden="true"> [at] </span><span
+          <span>{emailUser}</span><span class="contact__at" aria-hidden="true"></span><span
             class="visually-hidden"
           >
             at
@@ -28,18 +28,16 @@ const [emailUser, emailDomain] = profile.email.split('@');
         <button
           id="copy-email-btn"
           type="button"
-          class="btn btn-secondary"
+          class="btn btn-secondary contact__copy-btn"
           data-user={emailUser}
           data-domain={emailDomain}
         >
-          <Icon name="copy" size={16} class="copy-icon" />
-          <Icon name="check" size={16} class="check-icon" />
+          <Icon name="copy" size={14} class="copy-icon" />
+          <Icon name="check" size={14} class="check-icon" />
           <span id="copy-email-label">Copy Email</span>
         </button>
         <span id="copy-feedback" role="status" aria-live="polite" class="visually-hidden"></span>
       </div>
-
-      <p class="contact__location">Based in Egypt</p>
 
       <SocialLinks />
     </div>
@@ -74,6 +72,15 @@ const [emailUser, emailDomain] = profile.email.split('@');
     font-weight: 600;
   }
 
+  .contact__at::before {
+    content: '@';
+  }
+
+  .contact__copy-btn {
+    padding: 0.45rem 0.9rem;
+    font-size: 0.85rem;
+  }
+
   #copy-email-btn :global(.check-icon) {
     display: none;
     color: var(--color-success);
@@ -85,11 +92,6 @@ const [emailUser, emailDomain] = profile.email.split('@');
 
   #copy-email-btn.copied :global(.check-icon) {
     display: block;
-  }
-
-  .contact__location {
-    color: var(--color-text-muted);
-    font-weight: 500;
   }
 </style>
 
