@@ -16,16 +16,12 @@ const orderedProjects = [...projects].sort((a, b) => a.order - b.order);
       </p>
     </div>
 
-    {
-      orderedProjects.map((project, i) => (
-        <ProjectFeature project={project} index={i + 1} reversed={i % 2 === 1} />
-      ))
-    }
+    {orderedProjects.map((project, i) => <ProjectFeature project={project} index={i + 1} />)}
   </div>
 </section>
 
 <style>
   .projects {
-    padding-block: var(--space-8);
+    padding-block: var(--space-6);
   }
 </style>

@@ -6,14 +6,13 @@ import type { Project } from '../../data/projects';
 interface Props {
   project: Project;
   index: number;
-  reversed?: boolean;
 }
 
-const { project, index, reversed = false } = Astro.props;
+const { project, index } = Astro.props;
 const displayIndex = String(index).padStart(2, '0');
 ---
 
-<article class:list={['project', { 'project--reversed': reversed }]}>
+<article class="project">
   <div class="project__body">
     <span class="project__index" aria-hidden="true">{displayIndex}</span>
     <h3>{project.name}</h3>
@@ -34,6 +33,10 @@ const displayIndex = String(index).padStart(2, '0');
     <ul class="project__highlights">
       {project.highlights.map((highlight) => <li>{highlight}</li>)}
     </ul>
+
+    <div class="project__tech-grid">
+      {project.technologies.map((tech) => <TechChip item={tech} />)}
+    </div>
 
     <div class="project__actions">
       {
@@ -70,20 +73,11 @@ const displayIndex = String(index).padStart(2, '0');
       }
     </div>
   </div>
-
-  <div class="project__panel">
-    <div class="project__tech-grid">
-      {project.technologies.map((tech) => <TechChip item={tech} />)}
-    </div>
-  </div>
 </article>
 
 <style>
   .project {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: var(--space-6);
-    padding-block: var(--space-7);
+    padding-block: var(--space-6);
     border-top: 1px solid var(--color-border);
   }
 
@@ -142,52 +136,17 @@ const displayIndex = String(index).padStart(2, '0');
     border-radius: var(--radius-full);
   }
 
-  .project__actions {
-    display: flex;
-    flex-wrap: wrap;
-    gap: var(--space-3);
-    margin-top: var(--space-4);
-  }
-
-  .project__panel {
-    background: var(--color-surface);
-    border: 1px solid var(--color-border);
-    border-radius: var(--radius-lg);
-    padding: var(--space-6);
-    display: flex;
-    flex-direction: column;
-    gap: var(--space-4);
-    align-self: center;
-    transition: border-color var(--transition-fast);
-  }
-
-  .project:hover .project__panel {
-    border-color: var(--color-accent);
-  }
-
   .project__tech-grid {
     display: flex;
     flex-wrap: wrap;
     gap: var(--space-2);
+    margin-top: var(--space-5);
   }
 
-  @media (min-width: 900px) {
-    .project {
-      grid-template-columns: 1.2fr 0.8fr;
-      align-items: center;
-      gap: var(--space-8);
-    }
-
-    .project--reversed {
-      grid-template-columns: 0.8fr 1.2fr;
-    }
-
-    .project--reversed .project__body {
-      order: 2;
-    }
-
-    .project--reversed .project__panel {
-      order: 1;
-    }
+  .project__actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-3);
+    margin-top: var(--space-5);
   }
 </style>
