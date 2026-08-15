@@ -1,12 +1,7 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
     <rect width="64" height="64" rx="16" fill="#3a55c4" />
-    <text
-        x="32"
-        y="42"
-        text-anchor="middle"
-        font-family="Arial, Helvetica, sans-serif"
-        font-size="28"
-        font-weight="700"
+    <path
+        d="M17.6 43.2V20.8h4.96l8.64 13.44L39.84 20.8H44.8v22.4h-5.12v-14.56l-7.52 11.52h-2.24l-7.52-11.52V43.2H17.6Z"
         fill="#ffffff"
-    >MM</text>
+    />
 </svg>

@@ -51,13 +51,13 @@ import { profile } from '../../data/profile';
     position: relative;
     display: flex;
     align-items: center;
-    padding-block: var(--space-7) var(--space-8);
+    padding-block: var(--space-6);
   }
 
   .hero__inner {
     display: grid;
     grid-template-columns: 1fr;
-    gap: var(--space-7);
+    gap: var(--space-6);
     align-items: center;
   }
 
@@ -65,7 +65,7 @@ import { profile } from '../../data/profile';
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    gap: var(--space-4);
+    gap: var(--space-3);
   }
 
   .hero__positioning {
@@ -85,7 +85,7 @@ import { profile } from '../../data/profile';
   .hero__visual {
     position: relative;
     justify-self: center;
-    width: min(100%, 20rem);
+    width: min(100%, 16rem);
   }
 
   .hero__illustration {
@@ -142,11 +142,11 @@ import { profile } from '../../data/profile';
 
   @media (min-width: 900px) {
     .hero__inner {
-      grid-template-columns: 1.1fr 0.9fr;
+      grid-template-columns: 1.5fr 0.5fr;
     }
 
     .hero__visual {
-      width: 100%;
+      width: min(100%, 18rem);
       justify-self: end;
     }
   }
