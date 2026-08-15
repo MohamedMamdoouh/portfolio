@@ -1,0 +1,154 @@
+---
+import { Image } from 'astro:assets';
+import profileImage from '../../assets/profile/profile.png';
+import SocialLinks from '../shared/SocialLinks.astro';
+import CVButton from '../shared/CVButton.astro';
+import Icon from '../shared/Icon.astro';
+import DecorativeIllustration from './DecorativeIllustration.astro';
+import { profile } from '../../data/profile';
+---
+
+<section id="home" class="hero">
+  <div class="container hero__inner">
+    <div class="hero__content">
+      <p class="eyebrow">{profile.title}</p>
+      <h1>{profile.name}</h1>
+      <p class="hero__positioning">{profile.positioning}</p>
+
+      <div class="hero__actions">
+        <a href="#projects" class="btn btn-primary">View Projects</a>
+        <CVButton variant="secondary" />
+      </div>
+
+      <SocialLinks />
+    </div>
+
+    <div class="hero__visual" aria-hidden="false">
+      <div class="hero__illustration">
+        <DecorativeIllustration />
+      </div>
+      <div class="hero__portrait">
+        <Image
+          src={profileImage}
+          alt={`Portrait of ${profile.name}`}
+          width={480}
+          height={600}
+          quality={90}
+          loading="eager"
+          fetchpriority="high"
+        />
+      </div>
+    </div>
+  </div>
+
+  <a href="#projects" class="hero__scroll-indicator" aria-label="Scroll to Projects">
+    <Icon name="chevron-down" size={22} />
+  </a>
+</section>
+
+<style>
+  .hero {
+    position: relative;
+    min-height: calc(100svh - var(--nav-height));
+    display: flex;
+    align-items: center;
+    padding-block: var(--space-7);
+  }
+
+  .hero__inner {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-7);
+    align-items: center;
+  }
+
+  .hero__content {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--space-4);
+  }
+
+  .hero__positioning {
+    font-size: 1.15rem;
+    color: var(--color-text-muted);
+    max-width: 34rem;
+  }
+
+  .hero__actions {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: var(--space-3);
+    margin-top: var(--space-2);
+  }
+
+  .hero__visual {
+    position: relative;
+    justify-self: center;
+    width: min(100%, 20rem);
+  }
+
+  .hero__illustration {
+    position: absolute;
+    inset: -10%;
+    z-index: 0;
+  }
+
+  .hero__portrait {
+    position: relative;
+    z-index: 1;
+    aspect-ratio: 4 / 5;
+    overflow: hidden;
+    border-radius: var(--radius-lg);
+    border: 1px solid var(--color-border);
+    box-shadow: var(--shadow-md);
+  }
+
+  .hero__portrait :global(img) {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .hero__scroll-indicator {
+    position: absolute;
+    bottom: var(--space-5);
+    left: 50%;
+    transform: translateX(-50%);
+    display: inline-flex;
+    color: var(--color-text-muted);
+    animation: bob 2.2s ease-in-out infinite;
+  }
+
+  .hero__scroll-indicator:hover {
+    color: var(--color-accent);
+  }
+
+  @keyframes bob {
+    0%,
+    100% {
+      transform: translate(-50%, 0);
+    }
+    50% {
+      transform: translate(-50%, 6px);
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .hero__scroll-indicator {
+      animation: none;
+    }
+  }
+
+  @media (min-width: 900px) {
+    .hero__inner {
+      grid-template-columns: 1.1fr 0.9fr;
+    }
+
+    .hero__visual {
+      width: 100%;
+      justify-self: end;
+    }
+  }
+</style>

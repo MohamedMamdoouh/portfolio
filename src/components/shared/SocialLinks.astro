@@ -1,0 +1,68 @@
+---
+import BrandIcon from './BrandIcon.astro';
+import { socialLinks } from '../../data/social';
+
+interface Props {
+  class?: string;
+  iconSize?: number;
+}
+
+const { class: className = '', iconSize = 20 } = Astro.props;
+---
+
+<ul class:list={['social-links', className]}>
+  {
+    socialLinks.map((link) => (
+      <li>
+        <a
+          href={link.url}
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label={link.name}
+          class:list={['social-link', { 'social-link--emphasis': link.emphasize }]}
+        >
+          <BrandIcon slug={link.icon} size={iconSize} />
+        </a>
+      </li>
+    ))
+  }
+</ul>
+
+<style>
+  .social-links {
+    display: flex;
+    align-items: center;
+    gap: var(--space-3);
+  }
+
+  .social-link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 2.5rem;
+    height: 2.5rem;
+    border-radius: var(--radius-full);
+    color: var(--color-text-muted);
+    border: 1px solid var(--color-border);
+    transition:
+      color var(--transition-fast),
+      border-color var(--transition-fast),
+      transform var(--transition-fast);
+  }
+
+  .social-link:hover {
+    color: var(--color-accent);
+    border-color: var(--color-accent);
+    transform: translateY(-2px);
+  }
+
+  .social-link--emphasis {
+    color: var(--color-text);
+    border-color: var(--color-text);
+  }
+
+  .social-link--emphasis:hover {
+    color: var(--color-accent);
+    border-color: var(--color-accent);
+  }
+</style>

@@ -1,0 +1,88 @@
+---
+import SocialLinks from '../shared/SocialLinks.astro';
+import CVButton from '../shared/CVButton.astro';
+import Skills from '../skills/Skills.astro';
+import Contact from '../contact/Contact.astro';
+import { profile, education } from '../../data/profile';
+---
+
+<section id="about" class="about">
+  <div class="container">
+    <div class="section-intro">
+      <p class="eyebrow">About</p>
+      <h2>Background</h2>
+    </div>
+
+    <div class="about__grid">
+      <div class="about__intro">
+        <h3>Introduction</h3>
+        <p>{profile.introduction}</p>
+      </div>
+
+      <div class="about__education">
+        <h3>Education</h3>
+        <p class="about__degree">{education.degree}</p>
+        <p class="text-muted">{education.institution} · {education.graduation}</p>
+      </div>
+    </div>
+
+    <div class="about__cv-block">
+      <h3>Resume</h3>
+      <p class="text-muted">Download my CV for a full summary of my experience and skills.</p>
+      <CVButton variant="primary" />
+    </div>
+
+    <div class="about__social-block">
+      <h3>Connect</h3>
+      <SocialLinks />
+    </div>
+  </div>
+</section>
+
+<Skills />
+<Contact />
+
+<style>
+  .about {
+    padding-block: var(--space-8);
+  }
+
+  .about__grid {
+    display: grid;
+    gap: var(--space-7);
+    margin-bottom: var(--space-7);
+  }
+
+  .about__grid h3 {
+    margin-bottom: var(--space-3);
+  }
+
+  .about__degree {
+    font-weight: 600;
+  }
+
+  .about__cv-block,
+  .about__social-block {
+    padding-top: var(--space-6);
+    border-top: 1px solid var(--color-border);
+  }
+
+  .about__cv-block h3,
+  .about__social-block h3 {
+    margin-bottom: var(--space-3);
+  }
+
+  .about__cv-block p {
+    margin-bottom: var(--space-4);
+  }
+
+  .about__social-block {
+    margin-top: var(--space-6);
+  }
+
+  @media (min-width: 768px) {
+    .about__grid {
+      grid-template-columns: 1.3fr 1fr;
+    }
+  }
+</style>
