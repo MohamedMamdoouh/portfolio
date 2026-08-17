@@ -16,13 +16,17 @@ Personal portfolio website for Mohamed Mamdouh, a full-stack software engineer s
 
 A single-page portfolio site built with **HTML, CSS, and TypeScript**, bundled by **Vite 6**, and deployed automatically to **GitHub Pages**. There is no UI framework — sections are rendered at runtime from typed data files in `src/data/`.
 
-The site presents:
+### Page structure
 
-- **Hero** — name, role, positioning statement, profile photo, and CV download
-- **About** — introduction and education
-- **Skills** — grouped stacks (backend, frontend, database, tools, concepts) with brand icons
-- **Projects** — two featured full-stack systems (Shora, MechanicShop) with highlights
-- **Contact** — email with copy-to-clipboard and social profile links
+Sections appear in this order:
+
+1. **Hero** — name, role, positioning statement, profile photo, primary CTA, CV download, social links
+2. **About** — introduction and education in a labeled panel
+3. **Skills** — grouped stacks (backend, frontend, database, tools, concepts) with brand icons
+4. **Projects** — two featured full-stack systems (Shora, MechanicShop) with problem context and highlights
+5. **Contact** — compact footer bar with email, copy-to-clipboard, and social links
+
+Primary navigation links to **About**, **Skills**, and **Projects** (no separate Home link — the logo returns to the hero).
 
 ### Features
 
@@ -77,6 +81,8 @@ src/
 ```
 
 **Content updates:** edit files in `src/data/` rather than render modules. Asset paths should go through `withBase()` from `src/lib/paths.ts` so they resolve correctly under the GitHub Pages base path.
+
+**Styling:** global design tokens live in `src/styles/global.css` (`--section-gap`, colors, typography). Section-specific styles are split across `hero.css`, `about.css`, `skills.css`, `projects.css`, and `contact.css`. Spacing between sections uses a single top-padding rhythm to avoid doubled gaps.
 
 ## Getting started
 
