@@ -13,7 +13,6 @@ export interface Project {
   tagline: string;
   description: string;
   problem: string;
-  role: string;
   status: string;
   technologies: TechItem[];
   highlights: string[];
@@ -31,7 +30,6 @@ export const projects: Project[] = [
       'Full-stack booking platform for one-to-one consulting sessions with availability management, manual payment verification, client bookings, and admin operations.',
     problem:
       'Consultants need a reliable way to publish availability, take bookings, and verify payments manually while giving clients a smooth booking experience and admins full operational control.',
-    role: 'Full-stack developer — designed and built the backend, frontend, and infrastructure end to end.',
     status: 'Live in production',
     technologies: [
       { name: 'ASP.NET Core', iconSlug: 'dotnet' },
@@ -65,7 +63,6 @@ export const projects: Project[] = [
       'Backend system for managing mechanic shop operations (work orders, scheduling, customers, invoicing).',
     problem:
       'Mechanic shops need a structured backend to manage work orders, scheduling, customers, and invoicing with secure, role-based access.',
-    role: 'Backend developer — designed and built the REST API and its infrastructure.',
     status: 'GitHub project',
     technologies: [
       { name: 'ASP.NET Core', iconSlug: 'dotnet' },

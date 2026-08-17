@@ -21,27 +21,27 @@ export function renderSkills(container: HTMLElement): void {
 
   intro.append(eyebrow, heading);
 
-  const categories = document.createElement('div');
-  categories.className = 'skills__categories';
+  const panel = document.createElement('div');
+  panel.className = 'section-panel';
 
   skillCategories.forEach((category) => {
     const block = document.createElement('div');
-    block.className = 'skills__category';
+    block.className = 'section-panel__row';
 
     const title = document.createElement('h3');
     title.textContent = category.name;
 
     const chips = document.createElement('div');
-    chips.className = 'skills__chips';
+    chips.className = 'section-panel__body skills__chips';
     category.items.forEach((item) => {
       chips.appendChild(createTechChip(item));
     });
 
     block.append(title, chips);
-    categories.appendChild(block);
+    panel.appendChild(block);
   });
 
-  inner.append(intro, categories);
+  inner.append(intro, panel);
   section.appendChild(inner);
   container.replaceChildren(section);
 }

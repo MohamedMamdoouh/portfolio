@@ -22,7 +22,7 @@ export function initCopyEmail(): void {
 
     setTimeout(() => {
       button.classList.remove('copied');
-      if (label) label.textContent = 'Copy Email';
+      if (label) label.textContent = 'Copy';
     }, 2000);
   });
 }

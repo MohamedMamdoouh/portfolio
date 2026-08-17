@@ -20,37 +20,66 @@ export function renderAbout(container: HTMLElement): void {
 
   intro.append(eyebrow, heading);
 
-  const grid = document.createElement('div');
-  grid.className = 'about__grid';
+  const panel = document.createElement('div');
+  panel.className = 'section-panel about__panel';
 
-  const introBlock = document.createElement('div');
-  introBlock.className = 'about__intro';
+  const introRow = document.createElement('div');
+  introRow.className = 'section-panel__row section-panel__row--start';
 
   const introHeading = document.createElement('h3');
   introHeading.textContent = 'Introduction';
 
+  const introContent = document.createElement('div');
+  introContent.className = 'section-panel__body';
+
   const introText = document.createElement('p');
+  introText.className = 'about__intro';
   introText.textContent = profile.introduction;
 
-  introBlock.append(introHeading, introText);
+  introContent.appendChild(introText);
+  introRow.append(introHeading, introContent);
 
-  const educationBlock = document.createElement('div');
-  educationBlock.className = 'about__education';
+  const educationRow = document.createElement('div');
+  educationRow.className = 'section-panel__row section-panel__row--start';
 
   const educationHeading = document.createElement('h3');
   educationHeading.textContent = 'Education';
+
+  const educationContent = document.createElement('div');
+  educationContent.className = 'section-panel__body about__education';
 
   const degree = document.createElement('p');
   degree.className = 'about__degree';
   degree.textContent = education.degree;
 
-  const institution = document.createElement('p');
-  institution.className = 'text-muted';
-  institution.textContent = `${education.institution} · ${education.graduation}`;
+  const meta = document.createElement('p');
+  meta.className = 'about__meta';
 
-  educationBlock.append(educationHeading, degree, institution);
-  grid.append(introBlock, educationBlock);
-  inner.append(intro, grid);
+  const institution = document.createElement('span');
+  institution.textContent = education.institution;
+
+  const separator = document.createElement('span');
+  separator.className = 'about__meta-sep';
+  separator.setAttribute('aria-hidden', 'true');
+  separator.textContent = '·';
+
+  const location = document.createElement('span');
+  location.textContent = profile.location;
+
+  const graduationSep = document.createElement('span');
+  graduationSep.className = 'about__meta-sep';
+  graduationSep.setAttribute('aria-hidden', 'true');
+  graduationSep.textContent = '·';
+
+  const graduation = document.createElement('span');
+  graduation.textContent = education.graduation;
+
+  meta.append(institution, separator, location, graduationSep, graduation);
+  educationContent.append(degree, meta);
+  educationRow.append(educationHeading, educationContent);
+
+  panel.append(introRow, educationRow);
+  inner.append(intro, panel);
   section.appendChild(inner);
   container.replaceChildren(section);
 }

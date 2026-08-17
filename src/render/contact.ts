@@ -10,22 +10,17 @@ export function renderContact(container: HTMLElement): void {
   section.className = 'contact';
 
   const inner = document.createElement('div');
-  inner.className = 'container';
+  inner.className = 'container contact__inner';
 
-  const intro = document.createElement('div');
-  intro.className = 'section-intro';
+  const bar = document.createElement('div');
+  bar.className = 'contact__bar';
 
-  const eyebrow = document.createElement('p');
-  eyebrow.className = 'eyebrow';
-  eyebrow.textContent = 'Contact';
+  const label = document.createElement('h2');
+  label.className = 'contact__label';
+  label.textContent = 'Contact';
 
-  const heading = document.createElement('h2');
-  heading.textContent = 'Get in Touch';
-
-  intro.append(eyebrow, heading);
-
-  const row = document.createElement('div');
-  row.className = 'contact__row';
+  const emailGroup = document.createElement('div');
+  emailGroup.className = 'contact__email-group';
 
   const email = document.createElement('span');
   email.className = 'contact__email';
@@ -54,12 +49,14 @@ export function renderContact(container: HTMLElement): void {
   copyButton.className = 'btn btn-secondary contact__copy-btn';
   copyButton.dataset.user = emailUser;
   copyButton.dataset.domain = emailDomain;
+  copyButton.setAttribute('aria-label', 'Copy email address');
   copyButton.append(
     uiIcon('copy', 14, 'copy-icon'),
     uiIcon('check', 14, 'check-icon'),
     Object.assign(document.createElement('span'), {
       id: 'copy-email-label',
-      textContent: 'Copy Email',
+      className: 'contact__copy-label',
+      textContent: 'Copy',
     }),
   );
 
@@ -69,8 +66,11 @@ export function renderContact(container: HTMLElement): void {
   feedback.setAttribute('aria-live', 'polite');
   feedback.className = 'visually-hidden';
 
-  row.append(email, copyButton, feedback);
-  inner.append(intro, row, createSocialLinks());
+  emailGroup.append(email, copyButton, feedback);
+
+  const social = createSocialLinks('contact__social');
+  bar.append(label, emailGroup, social);
+  inner.appendChild(bar);
   section.appendChild(inner);
   container.replaceChildren(section);
 }

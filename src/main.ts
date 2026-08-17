@@ -32,9 +32,9 @@ function mount(): void {
 
   renderNavigation(header);
   renderHero(hero);
-  renderProjects(projects);
   renderAbout(about);
   renderSkills(skills);
+  renderProjects(projects);
   renderContact(contact);
 
   initTheme();

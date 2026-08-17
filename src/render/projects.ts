@@ -1,6 +1,5 @@
 import { projects } from '../data/projects';
 import type { Project } from '../data/projects';
-import { createTechChip } from './shared';
 import { uiIcon } from '../lib/icons';
 
 function renderProjectFeature(project: Project, index: number): HTMLElement {
@@ -18,11 +17,8 @@ function renderProjectFeature(project: Project, index: number): HTMLElement {
   const title = document.createElement('h3');
   title.textContent = project.name;
 
-  const tagline = document.createElement('p');
-  tagline.className = 'project__tagline';
-  tagline.textContent = project.tagline;
-
   const description = document.createElement('p');
+  description.className = 'project__description';
   description.textContent = project.description;
 
   const meta = document.createElement('dl');
@@ -35,14 +31,7 @@ function renderProjectFeature(project: Project, index: number): HTMLElement {
   problemDd.textContent = project.problem;
   problemDiv.append(problemDt, problemDd);
 
-  const roleDiv = document.createElement('div');
-  const roleDt = document.createElement('dt');
-  roleDt.textContent = 'Role';
-  const roleDd = document.createElement('dd');
-  roleDd.textContent = project.role;
-  roleDiv.append(roleDt, roleDd);
-
-  meta.append(problemDiv, roleDiv);
+  meta.appendChild(problemDiv);
 
   const highlights = document.createElement('ul');
   highlights.className = 'project__highlights';
@@ -50,12 +39,6 @@ function renderProjectFeature(project: Project, index: number): HTMLElement {
     const li = document.createElement('li');
     li.textContent = highlight;
     highlights.appendChild(li);
-  });
-
-  const techGrid = document.createElement('div');
-  techGrid.className = 'project__tech-grid';
-  project.technologies.forEach((tech) => {
-    techGrid.appendChild(createTechChip(tech));
   });
 
   const actions = document.createElement('div');
@@ -87,7 +70,7 @@ function renderProjectFeature(project: Project, index: number): HTMLElement {
     actions.appendChild(githubLink);
   }
 
-  body.append(indexLabel, title, tagline, description, meta, highlights, techGrid, actions);
+  body.append(indexLabel, title, description, meta, highlights, actions);
   article.appendChild(body);
 
   return article;
@@ -114,7 +97,7 @@ export function renderProjects(container: HTMLElement): void {
   const summary = document.createElement('p');
   summary.className = 'text-muted';
   summary.textContent =
-    'A closer look at two full-stack systems I designed and built end-to-end — from clean, well-tested backend architecture with ASP.NET Core to the Angular interfaces on top of them.';
+    'A selection of full-stack work I have designed and built end to end — ASP.NET Core backends with clean, tested architecture, paired with Angular frontends built to the same standard.';
 
   intro.append(eyebrow, heading, summary);
 

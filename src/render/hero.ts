@@ -1,6 +1,6 @@
 import { profile } from '../data/profile';
 import { createCVButton, createSocialLinks } from './shared';
-import { decorativeIllustration, uiIcon } from '../lib/icons';
+import { decorativeIllustration } from '../lib/icons';
 
 export function renderHero(container: HTMLElement): void {
   const section = document.createElement('section');
@@ -13,10 +13,6 @@ export function renderHero(container: HTMLElement): void {
   const content = document.createElement('div');
   content.className = 'hero__content';
 
-  const eyebrow = document.createElement('p');
-  eyebrow.className = 'eyebrow';
-  eyebrow.textContent = profile.title;
-
   const heading = document.createElement('h1');
   heading.textContent = profile.name;
 
@@ -27,13 +23,13 @@ export function renderHero(container: HTMLElement): void {
   const actions = document.createElement('div');
   actions.className = 'hero__actions';
 
-  const viewProjects = document.createElement('a');
-  viewProjects.href = '#projects';
-  viewProjects.className = 'btn btn-primary';
-  viewProjects.textContent = 'View Projects';
+  const aboutLink = document.createElement('a');
+  aboutLink.href = '#about';
+  aboutLink.className = 'btn btn-primary';
+  aboutLink.textContent = 'About Me';
 
-  actions.append(viewProjects, createCVButton('secondary'));
-  content.append(eyebrow, heading, positioning, actions, createSocialLinks());
+  actions.append(aboutLink, createCVButton('secondary'));
+  content.append(heading, positioning, actions, createSocialLinks('hero__social'));
 
   const visual = document.createElement('div');
   visual.className = 'hero__visual';
@@ -57,13 +53,6 @@ export function renderHero(container: HTMLElement): void {
   portraitWrap.appendChild(portrait);
   visual.append(illustrationWrap, portraitWrap);
   inner.append(content, visual);
-
-  const scrollIndicator = document.createElement('a');
-  scrollIndicator.href = '#projects';
-  scrollIndicator.className = 'hero__scroll-indicator';
-  scrollIndicator.setAttribute('aria-label', 'Scroll to Projects');
-  scrollIndicator.appendChild(uiIcon('chevron-down', 22));
-
-  section.append(inner, scrollIndicator);
+  section.appendChild(inner);
   container.replaceChildren(section);
 }

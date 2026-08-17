@@ -1,48 +1,128 @@
 # Mohamed Mamdouh — Portfolio
 
-Personal portfolio site for Mohamed Mamdouh, built with **HTML + CSS + TypeScript** (Vite) and deployed to GitHub Pages.
+Personal portfolio website for Mohamed Mamdouh, a full-stack software engineer specializing in ASP.NET Core and Angular.
 
-## Stack
+## Links
 
-- Vite (static build) + TypeScript
-- Plain CSS with design tokens (no CSS framework)
-- [simple-icons](https://simpleicons.org/) for technology/brand logos
-- [@fontsource-variable/inter](https://fontsource.org/fonts/inter) for self-hosted type
+| | |
+| --- | --- |
+| **Live website** | **[mohamedmamdoouh.github.io/portfolio](https://mohamedmamdoouh.github.io/portfolio/)** |
+| Repository | [github.com/MohamedMamdoouh/portfolio](https://github.com/MohamedMamdoouh/portfolio) |
+| GitHub | [github.com/MohamedMamdoouh](https://github.com/MohamedMamdoouh) |
+| LinkedIn | [linkedin.com/in/mohamed-mamdouh-220806192](https://www.linkedin.com/in/mohamed-mamdouh-220806192/) |
+| Email | mohamedmamdouh3550@gmail.com |
+
+## Overview
+
+A single-page portfolio site built with **HTML, CSS, and TypeScript**, bundled by **Vite 6**, and deployed automatically to **GitHub Pages**. There is no UI framework — sections are rendered at runtime from typed data files in `src/data/`.
+
+The site presents:
+
+- **Hero** — name, role, positioning statement, profile photo, and CV download
+- **About** — introduction and education
+- **Skills** — grouped stacks (backend, frontend, database, tools, concepts) with brand icons
+- **Projects** — two featured full-stack systems (Shora, MechanicShop) with highlights
+- **Contact** — email with copy-to-clipboard and social profile links
+
+### Features
+
+- Light / dark theme with `localStorage` persistence and system-preference fallback
+- Responsive navigation with mobile menu, scroll spy, and active section highlighting
+- Self-hosted [Inter](https://fontsource.org/fonts/inter) variable font via Fontsource
+- Technology logos from [simple-icons](https://simpleicons.org/)
+- SEO meta tags, Open Graph, Twitter cards, and JSON-LD structured data
+- Multi-page Vite build with a dedicated 404 page
+- Zero runtime dependencies beyond fonts and icons
+
+## Tech stack
+
+| Layer | Technology |
+| --- | --- |
+| Language | TypeScript (strict mode) |
+| Build tool | [Vite 6](https://vite.dev/) |
+| Styling | Plain CSS with design tokens — no CSS framework |
+| Icons | [simple-icons](https://simpleicons.org/) |
+| Fonts | [@fontsource-variable/inter](https://fontsource.org/fonts/inter) |
+| Linting | ESLint 9 + Prettier |
+| Hosting | GitHub Pages via GitHub Actions |
+| Node.js | >= 22.12.0 |
 
 ## Project structure
 
 ```text
-index.html, 404.html
+index.html, 404.html              HTML entry shells
+vite.config.ts                    Vite config (base path, multi-page build)
+
 public/
-  cv/                 final CV PDF served as a static asset
-  images/profile/     profile photo
-  favicon.svg, favicon.ico, social-preview.png
+  cv/mohamed-mamdouh-cv.pdf       downloadable CV
+  images/profile/profile.png      profile photo
+  favicon.svg, favicon.ico        site icons
+  social-preview.png              Open Graph / Twitter card image
+
 src/
-  data/               centralized content (profile, social, projects, skills, nav)
-  lib/                paths, icons
-  render/             DOM render functions for each section
-  scripts/            theme, navigation, copy-email interactivity
-  styles/             global.css + section styles
-  main.ts, not-found.ts
+  data/                           content source of truth
+    profile.ts                    name, bio, email, CV path, education
+    projects.ts                   featured projects
+    skills.ts                     skill groups and items
+    nav.ts                        navigation links
+    social.ts                     social profile URLs
+  lib/                            base-path helper, icon utilities
+  render/                         DOM render functions per section
+  scripts/                        theme toggle, navigation, copy-email
+  styles/                         global.css + per-section stylesheets
+  main.ts                         app entry — mounts all sections
+  not-found.ts                    404 page entry
+
+.github/workflows/deploy.yml      CI/CD — build and deploy to GitHub Pages
 ```
 
-All personal/project content lives in `src/data/` — update it there rather than in render modules.
+**Content updates:** edit files in `src/data/` rather than render modules. Asset paths should go through `withBase()` from `src/lib/paths.ts` so they resolve correctly under the GitHub Pages base path.
+
+## Getting started
+
+```bash
+npm install
+npm run dev
+```
+
+Open **[http://localhost:5173/portfolio/](http://localhost:5173/portfolio/)** — the `/portfolio/` prefix matches the production base path configured in `vite.config.ts`.
+
+To preview the production build locally:
+
+```bash
+npm run build
+npm run preview
+```
+
+Then open the URL shown in the terminal (also under `/portfolio/`).
 
 ## Commands
 
-| Command           | Action                                    |
-| ----------------- | ----------------------------------------- |
-| `npm install`     | Install dependencies                      |
-| `npm run dev`     | Start local dev server                    |
-| `npm run build`   | Type-check (`tsc`) then build to `./dist` |
-| `npm run preview` | Preview the production build locally      |
-| `npm run lint`    | ESLint + Prettier check                   |
-| `npm run format`  | Prettier write                            |
+| Command | Description |
+| --- | --- |
+| `npm install` | Install dependencies |
+| `npm run dev` | Start Vite dev server with hot reload |
+| `npm run build` | Type-check with `tsc`, then build to `./dist` |
+| `npm run preview` | Serve the production build locally |
+| `npm run lint` | Run ESLint and Prettier checks |
+| `npm run format` | Auto-format all files with Prettier |
 
 ## Deployment
 
-Pushing to `main` triggers `.github/workflows/deploy.yml`, which builds the site and deploys `./dist` to GitHub Pages automatically.
+Pushing to `main` triggers [`.github/workflows/deploy.yml`](.github/workflows/deploy.yml):
 
-Base path: `/portfolio/` (configured in `vite.config.ts`).
+1. `npm ci` — install dependencies
+2. `npm run build` — type-check and produce `./dist`
+3. Upload artifact and deploy to GitHub Pages
 
-Local URL: `http://localhost:5173/portfolio/`
+| Setting | Value |
+| --- | --- |
+| Production URL | **https://mohamedmamdoouh.github.io/portfolio/** |
+| Base path | `/portfolio/` (must match the GitHub repository name) |
+| Config | `vite.config.ts` → `base: '/portfolio/'` |
+
+The base path must match the repository name exactly — otherwise CSS, JS, images, and favicons will return 404 on GitHub Pages.
+
+## License
+
+[MIT](LICENSE)
