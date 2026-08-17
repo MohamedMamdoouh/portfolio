@@ -1,6 +1,8 @@
 .nav {
-  position: sticky;
+  position: fixed;
   top: 0;
+  left: 0;
+  right: 0;
   z-index: 100;
   background: color-mix(in srgb, var(--color-bg) 88%, transparent);
   backdrop-filter: blur(12px);
@@ -65,7 +67,7 @@
 
 .nav__links a[aria-current='true'] {
   color: var(--color-accent);
-  background: var(--color-accent-muted);
+  font-weight: 600;
 }
 
 .nav__actions {
@@ -136,10 +138,14 @@
   transition: background-color var(--transition-fast);
 }
 
-.mobile-menu a:hover,
+.mobile-menu a:hover {
+  background: var(--color-surface-alt);
+}
+
 .mobile-menu a[aria-current='true'] {
-  background: var(--color-accent-muted);
   color: var(--color-accent);
+  font-weight: 600;
+  background: transparent;
 }
 
 .mobile-menu__cv {

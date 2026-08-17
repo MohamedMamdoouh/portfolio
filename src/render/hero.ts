@@ -22,13 +22,7 @@ export function renderHero(container: HTMLElement): void {
 
   const actions = document.createElement('div');
   actions.className = 'hero__actions';
-
-  const aboutLink = document.createElement('a');
-  aboutLink.href = '#about';
-  aboutLink.className = 'btn btn-primary';
-  aboutLink.textContent = 'About Me';
-
-  actions.append(aboutLink, createCVButton('secondary'));
+  actions.appendChild(createCVButton('primary'));
   content.append(heading, positioning, actions, createSocialLinks('hero__social'));
 
   const visual = document.createElement('div');

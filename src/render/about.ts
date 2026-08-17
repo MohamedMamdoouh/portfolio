@@ -21,13 +21,13 @@ export function renderAbout(container: HTMLElement): void {
   intro.append(eyebrow, heading);
 
   const panel = document.createElement('div');
-  panel.className = 'section-panel about__panel';
+  panel.className = 'section-panel';
 
   const introRow = document.createElement('div');
-  introRow.className = 'section-panel__row section-panel__row--start';
+  introRow.className = 'section-panel__row';
 
   const introHeading = document.createElement('h3');
-  introHeading.textContent = 'Introduction';
+  introHeading.textContent = 'Summary';
 
   const introContent = document.createElement('div');
   introContent.className = 'section-panel__body';
@@ -40,7 +40,7 @@ export function renderAbout(container: HTMLElement): void {
   introRow.append(introHeading, introContent);
 
   const educationRow = document.createElement('div');
-  educationRow.className = 'section-panel__row section-panel__row--start';
+  educationRow.className = 'section-panel__row';
 
   const educationHeading = document.createElement('h3');
   educationHeading.textContent = 'Education';

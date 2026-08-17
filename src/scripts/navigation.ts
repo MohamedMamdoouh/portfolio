@@ -1,16 +1,59 @@
+const SCROLL_SECTIONS = ['home', 'about', 'skills', 'projects'] as const;
+
+function getSectionTop(element: HTMLElement): number {
+  return element.getBoundingClientRect().top + window.scrollY;
+}
+
 export function initNavigation(): void {
   const nav = document.getElementById('site-nav');
   const hamburger = document.getElementById('mobile-menu-toggle');
   const mobileMenu = document.getElementById('mobile-menu');
   const navLinks = Array.from(document.querySelectorAll<HTMLAnchorElement>('[data-nav-link]'));
 
+  const pageSections = SCROLL_SECTIONS.map((id) => document.getElementById(id)).filter(
+    (el): el is HTMLElement => el !== null,
+  );
+
   function setScrolled(): void {
     if (!nav) return;
     nav.classList.toggle('nav--scrolled', window.scrollY > 8);
   }
 
+  function updateActiveSection(): void {
+    const navHeight = nav?.offsetHeight ?? 64;
+    const marker = window.scrollY + navHeight + 64;
+
+    let activeId = '';
+    for (const section of pageSections) {
+      if (getSectionTop(section) <= marker) {
+        activeId = section.id;
+      }
+    }
+
+    navLinks.forEach((link) => {
+      if (activeId !== 'home' && link.dataset.target === activeId) {
+        link.setAttribute('aria-current', 'true');
+      } else {
+        link.removeAttribute('aria-current');
+      }
+    });
+  }
+
+  let ticking = false;
+  function onScroll(): void {
+    if (ticking) return;
+    ticking = true;
+    requestAnimationFrame(() => {
+      setScrolled();
+      updateActiveSection();
+      ticking = false;
+    });
+  }
+
   setScrolled();
-  window.addEventListener('scroll', setScrolled, { passive: true });
+  updateActiveSection();
+  window.addEventListener('scroll', onScroll, { passive: true });
+  window.addEventListener('resize', updateActiveSection, { passive: true });
 
   function closeMobileMenu(): void {
     if (!mobileMenu || !hamburger) return;
@@ -47,27 +90,4 @@ export function initNavigation(): void {
       closeMobileMenu();
     }
   });
-
-  const sections = navLinks
-    .map((link) => link.dataset.target)
-    .filter((id, index, arr): id is string => Boolean(id && arr.indexOf(id) === index))
-    .map((id) => document.getElementById(id))
-    .filter((el): el is HTMLElement => el !== null);
-
-  const observer = new IntersectionObserver(
-    (entries) => {
-      entries.forEach((entry) => {
-        if (!entry.isIntersecting) return;
-        const id = entry.target.id;
-        navLinks.forEach((link) => {
-          const isMatch = link.dataset.target === id;
-          if (isMatch) link.setAttribute('aria-current', 'true');
-          else link.removeAttribute('aria-current');
-        });
-      });
-    },
-    { rootMargin: '-40% 0px -55% 0px', threshold: 0 },
-  );
-
-  sections.forEach((section) => observer.observe(section));
 }
