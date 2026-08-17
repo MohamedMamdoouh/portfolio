@@ -1,0 +1,65 @@
+.contact {
+  padding-block: var(--space-6);
+}
+
+.contact__row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-4);
+  margin-bottom: var(--space-5);
+}
+
+.contact__email {
+  font-size: 1.05rem;
+  font-weight: 600;
+}
+
+.contact__at::before {
+  content: '@';
+}
+
+.contact__copy-btn {
+  padding: 0.45rem 0.9rem;
+  font-size: 0.85rem;
+}
+
+#copy-email-btn .check-icon {
+  display: none;
+  color: var(--color-success);
+}
+
+#copy-email-btn.copied .copy-icon {
+  display: none;
+}
+
+#copy-email-btn.copied .check-icon {
+  display: block;
+}
+
+.social-links {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+}
+
+.social-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: var(--radius-full);
+  color: var(--color-text-muted);
+  border: 1px solid var(--color-border);
+  transition:
+    color var(--transition-fast),
+    border-color var(--transition-fast),
+    transform var(--transition-fast);
+}
+
+.social-link:hover {
+  color: var(--color-accent);
+  border-color: var(--color-accent);
+  transform: translateY(-2px);
+}

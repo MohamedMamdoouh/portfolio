@@ -1,0 +1,95 @@
+.projects {
+  padding-block: var(--space-6);
+}
+
+.project {
+  padding-block: var(--space-6);
+  border-top: 1px solid var(--color-border);
+}
+
+.project:first-child {
+  border-top: none;
+}
+
+.project__index {
+  display: block;
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: var(--color-accent);
+  margin-bottom: var(--space-2);
+}
+
+.project__tagline {
+  color: var(--color-text-muted);
+  font-weight: 500;
+}
+
+.project__body p {
+  margin-top: var(--space-2);
+}
+
+.project__meta {
+  display: grid;
+  gap: var(--space-4);
+  margin: var(--space-5) 0 0;
+}
+
+.project__meta dt {
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--color-text-muted);
+}
+
+.project__meta dd {
+  margin: var(--space-1) 0 0;
+}
+
+.project__highlights {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+  margin-top: var(--space-5);
+}
+
+.project__highlights li {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--color-accent);
+  background: color-mix(in srgb, var(--color-accent) 12%, transparent);
+  padding: 0.35rem 0.7rem;
+  border-radius: var(--radius-full);
+}
+
+.project__tech-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+  margin-top: var(--space-5);
+}
+
+.project__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-3);
+  margin-top: var(--space-5);
+}
+
+.tech-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: 0.4rem 0.75rem;
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: var(--color-text);
+  background: var(--color-surface-alt);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+}
+
+.tech-chip svg {
+  color: var(--color-text-muted);
+  flex-shrink: 0;
+}

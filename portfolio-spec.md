@@ -6,7 +6,7 @@ This document is the implementation specification for Mohamed Mamdouh's public p
 
 The implementation agent must treat this document as the source of truth for the portfolio.
 
-The goal is to build a polished, minimal, professional, responsive, English-only personal portfolio that presents Mohamed as a Junior Software Engineer / Junior Full-Stack Developer focused on .NET and Angular.
+The goal is to build a polished, minimal, professional, responsive, English-only personal portfolio that presents Mohamed as a Software Engineer / Full-Stack Developer focused on .NET and Angular.
 
 ---
 
@@ -89,17 +89,15 @@ Software Engineer
 
 ## Professional positioning
 
-> Junior Software Engineer focused on building full-stack web applications with .NET and Angular.
+> Software Engineer focused on building full-stack web applications with .NET and Angular.
 
 This wording may be refined later for presentation quality, but the meaning must remain unchanged unless approved.
 
 ## Target role
 
-Junior Full-Stack Developer
+Full-Stack Developer
 
 ## Professional level
-
-Junior
 
 ## Location
 
@@ -366,7 +364,7 @@ The Hero is the first viewport and should approximately fill it.
 
 Use:
 
-> Junior Software Engineer focused on building full-stack web applications with .NET and Angular.
+> Software Engineer focused on building full-stack web applications with .NET and Angular.
 
 The wording can be polished later without changing the meaning.
 

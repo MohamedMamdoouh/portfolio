@@ -1,0 +1,22 @@
+.about {
+  padding-block: var(--space-6);
+}
+
+.about__grid {
+  display: grid;
+  gap: var(--space-7);
+}
+
+.about__grid h3 {
+  margin-bottom: var(--space-3);
+}
+
+.about__degree {
+  font-weight: 600;
+}
+
+@media (min-width: 768px) {
+  .about__grid {
+    grid-template-columns: 1.3fr 1fr;
+  }
+}

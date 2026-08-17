@@ -1,0 +1,19 @@
+.skills {
+  padding-block: var(--space-6);
+}
+
+.skills__categories {
+  display: grid;
+  gap: var(--space-6);
+}
+
+.skills__category h3 {
+  margin-bottom: var(--space-3);
+  font-size: 1.05rem;
+}
+
+.skills__chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+}
