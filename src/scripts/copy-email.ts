@@ -2,6 +2,7 @@ export function initCopyEmail(): void {
   const button = document.getElementById('copy-email-btn');
   const label = document.getElementById('copy-email-label');
   const feedback = document.getElementById('copy-feedback');
+  let resetTimeout: ReturnType<typeof setTimeout> | undefined;
 
   button?.addEventListener('click', async () => {
     const user = button.dataset.user;
@@ -10,19 +11,31 @@ export function initCopyEmail(): void {
 
     const email = `${user}@${domain}`;
 
+    let copied = false;
     try {
       await navigator.clipboard.writeText(email);
+      copied = true;
     } catch {
-      // Clipboard API unavailable — fall back silently, feedback still informs the user of intent.
+      copied = false;
+    }
+
+    if (!copied) {
+      if (feedback) feedback.textContent = 'Unable to copy email address';
+      return;
+    }
+
+    if (resetTimeout !== undefined) {
+      clearTimeout(resetTimeout);
     }
 
     button.classList.add('copied');
     if (label) label.textContent = 'Copied!';
     if (feedback) feedback.textContent = 'Email address copied to clipboard';
 
-    setTimeout(() => {
+    resetTimeout = setTimeout(() => {
       button.classList.remove('copied');
       if (label) label.textContent = 'Copy';
+      resetTimeout = undefined;
     }, 2000);
   });
 }

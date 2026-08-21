@@ -18,7 +18,7 @@ import { initTheme } from './scripts/theme';
 import { initNavigation } from './scripts/navigation';
 import { initCopyEmail } from './scripts/copy-email';
 
-function mount(): void {
+function initializeApp(): void {
   const header = document.getElementById('site-header');
   const hero = document.getElementById('hero-section');
   const projects = document.getElementById('projects-section');
@@ -27,7 +27,7 @@ function mount(): void {
   const contact = document.getElementById('contact-section');
 
   if (!header || !hero || !projects || !about || !skills || !contact) {
-    throw new Error('Missing required mount points in index.html');
+    throw new Error('Missing required initializeApp points in index.html');
   }
 
   renderNavigation(header);
@@ -43,7 +43,7 @@ function mount(): void {
 }
 
 if (document.readyState === 'loading') {
-  document.addEventListener('DOMContentLoaded', mount);
+  document.addEventListener('DOMContentLoaded', initializeApp);
 } else {
-  mount();
+  initializeApp();
 }
