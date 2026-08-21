@@ -1,5 +1,3 @@
-// Confirmed social profile URLs. Do not modify without explicit confirmation.
-
 export interface SocialLink {
   name: string;
   url: string;

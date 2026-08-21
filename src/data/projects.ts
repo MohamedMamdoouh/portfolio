@@ -1,9 +1,5 @@
-// Centralized project data. Source of truth: mohamed_mamdouh_cv.pdf (confirmed by user).
-// Do not add, remove, or reorder projects without explicit approval — the spec requires exactly 2.
-
 export interface TechItem {
   name: string;
-  /** simple-icons slug (without the "si" prefix), omitted when no accurate brand logo exists */
   iconSlug?: string;
 }
 
@@ -24,7 +20,7 @@ export interface Project {
 export const projects: Project[] = [
   {
     slug: 'shora',
-    name: 'Shora – Full-Stack Booking Platform',
+    name: 'Shora - Full-Stack Booking Platform',
     tagline: 'Full-stack booking platform for one-to-one consulting sessions',
     description:
       'Full-stack booking platform for one-to-one consulting sessions with availability management, manual payment verification, client bookings, and admin operations.',
@@ -57,7 +53,7 @@ export const projects: Project[] = [
   },
   {
     slug: 'mechanicshop',
-    name: 'MechanicShop – Backend REST API',
+    name: 'MechanicShop - Backend REST API',
     tagline: 'Backend system for managing mechanic shop operations',
     description:
       'Backend system for managing mechanic shop operations (work orders, scheduling, customers, invoicing).',

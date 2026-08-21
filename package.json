@@ -11,7 +11,11 @@
     "build": "tsc --noEmit && vite build",
     "preview": "vite preview",
     "lint": "eslint . && prettier --check .",
-    "format": "prettier --write ."
+    "format": "prettier --write .",
+    "clean:modules": "node -e \"require('fs').rmSync('node_modules',{recursive:true,force:true})\"",
+    "clean:dist": "node -e \"require('fs').rmSync('dist',{recursive:true,force:true})\"",
+    "clean": "npm run clean:modules && npm run clean:dist",
+    "reinstall": "npm run clean:modules && npm ci"
   },
   "dependencies": {
     "@fontsource-variable/inter": "^5.1.1",

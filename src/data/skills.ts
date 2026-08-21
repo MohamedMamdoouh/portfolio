@@ -1,5 +1,3 @@
-// Skills data, curated from the CV (not every listed technology is duplicated as a logo chip).
-
 import type { TechItem } from './projects';
 
 export interface SkillCategory {

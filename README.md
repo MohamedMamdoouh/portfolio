@@ -4,13 +4,13 @@ Personal portfolio website for Mohamed Mamdouh, a full-stack software engineer s
 
 ## Links
 
-| | |
-| --- | --- |
-| **Live website** | **[mohamedmamdoouh.github.io/portfolio](https://mohamedmamdoouh.github.io/portfolio/)** |
-| Repository | [github.com/MohamedMamdoouh/portfolio](https://github.com/MohamedMamdoouh/portfolio) |
-| GitHub | [github.com/MohamedMamdoouh](https://github.com/MohamedMamdoouh) |
-| LinkedIn | [linkedin.com/in/mohamed-mamdouh-220806192](https://www.linkedin.com/in/mohamed-mamdouh-220806192/) |
-| Email | mohamedmamdouh3550@gmail.com |
+|                  |                                                                                                     |
+| ---------------- | --------------------------------------------------------------------------------------------------- |
+| **Live website** | **[mohamedmamdoouh.github.io/portfolio](https://mohamedmamdoouh.github.io/portfolio/)**             |
+| Repository       | [github.com/MohamedMamdoouh/portfolio](https://github.com/MohamedMamdoouh/portfolio)                |
+| GitHub           | [github.com/MohamedMamdoouh](https://github.com/MohamedMamdoouh)                                    |
+| LinkedIn         | [linkedin.com/in/mohamed-mamdouh-220806192](https://www.linkedin.com/in/mohamed-mamdouh-220806192/) |
+| Email            | mohamedmamdouh3550@gmail.com                                                                        |
 
 ## Overview
 
@@ -40,16 +40,16 @@ Primary navigation links to **About**, **Skills**, and **Projects** (no separate
 
 ## Tech stack
 
-| Layer | Technology |
-| --- | --- |
-| Language | TypeScript (strict mode) |
-| Build tool | [Vite 6](https://vite.dev/) |
-| Styling | Plain CSS with design tokens — no CSS framework |
-| Icons | [simple-icons](https://simpleicons.org/) |
-| Fonts | [@fontsource-variable/inter](https://fontsource.org/fonts/inter) |
-| Linting | ESLint 9 + Prettier |
-| Hosting | GitHub Pages via GitHub Actions |
-| Node.js | >= 22.12.0 |
+| Layer      | Technology                                                       |
+| ---------- | ---------------------------------------------------------------- |
+| Language   | TypeScript (strict mode)                                         |
+| Build tool | [Vite 6](https://vite.dev/)                                      |
+| Styling    | Plain CSS with design tokens — no CSS framework                  |
+| Icons      | [simple-icons](https://simpleicons.org/)                         |
+| Fonts      | [@fontsource-variable/inter](https://fontsource.org/fonts/inter) |
+| Linting    | ESLint 9 + Prettier                                              |
+| Hosting    | GitHub Pages via GitHub Actions                                  |
+| Node.js    | >= 22.12.0                                                       |
 
 ## Project structure
 
@@ -104,14 +104,14 @@ Then open the URL shown in the terminal (also under `/portfolio/`).
 
 ## Commands
 
-| Command | Description |
-| --- | --- |
-| `npm install` | Install dependencies |
-| `npm run dev` | Start Vite dev server with hot reload |
-| `npm run build` | Type-check with `tsc`, then build to `./dist` |
-| `npm run preview` | Serve the production build locally |
-| `npm run lint` | Run ESLint and Prettier checks |
-| `npm run format` | Auto-format all files with Prettier |
+| Command           | Description                                   |
+| ----------------- | --------------------------------------------- |
+| `npm install`     | Install dependencies                          |
+| `npm run dev`     | Start Vite dev server with hot reload         |
+| `npm run build`   | Type-check with `tsc`, then build to `./dist` |
+| `npm run preview` | Serve the production build locally            |
+| `npm run lint`    | Run ESLint and Prettier checks                |
+| `npm run format`  | Auto-format all files with Prettier           |
 
 ## Deployment
 
@@ -121,14 +121,10 @@ Pushing to `main` triggers [`.github/workflows/deploy.yml`](.github/workflows/de
 2. `npm run build` — type-check and produce `./dist`
 3. Upload artifact and deploy to GitHub Pages
 
-| Setting | Value |
-| --- | --- |
-| Production URL | **https://mohamedmamdoouh.github.io/portfolio/** |
-| Base path | `/portfolio/` (must match the GitHub repository name) |
-| Config | `vite.config.ts` → `base: '/portfolio/'` |
+| Setting        | Value                                                 |
+| -------------- | ----------------------------------------------------- |
+| Production URL | **https://mohamedmamdoouh.github.io/portfolio/**      |
+| Base path      | `/portfolio/` (must match the GitHub repository name) |
+| Config         | `vite.config.ts` → `base: '/portfolio/'`              |
 
 The base path must match the repository name exactly — otherwise CSS, JS, images, and favicons will return 404 on GitHub Pages.
-
-## License
-
-[MIT](LICENSE)

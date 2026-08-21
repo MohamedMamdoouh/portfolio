@@ -1,5 +1,3 @@
-// Centralized personal/profile data. Source of truth: mohamed_mamdouh_cv.pdf
-
 import { withBase } from '../lib/paths';
 
 export const profile = {
@@ -17,7 +15,7 @@ export const profile = {
 } as const;
 
 export const education = {
-  degree: 'Bachelor of Engineering – Computer and Systems Engineering',
+  degree: 'Bachelor of Engineering - Computer and Systems Engineering',
   institution: 'Zagazig University',
   graduation: 'Graduated 2026',
 } as const;
