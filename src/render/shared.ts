@@ -1,23 +1,6 @@
-import type { TechItem } from '../data/projects';
 import { profile } from '../data/profile';
 import { socialLinks } from '../data/social';
 import { brandIcon, uiIcon } from '../lib/icons';
-
-export function createTechChip(item: TechItem): HTMLSpanElement {
-  const chip = document.createElement('span');
-  chip.className = 'tech-chip';
-
-  if (item.iconSlug) {
-    const icon = brandIcon(item.iconSlug, 16);
-    if (icon) chip.appendChild(icon);
-  }
-
-  const label = document.createElement('span');
-  label.textContent = item.name;
-  chip.appendChild(label);
-
-  return chip;
-}
 
 export function createCVButton(variant: 'primary' | 'secondary' = 'secondary'): HTMLAnchorElement {
   const link = document.createElement('a');
@@ -31,9 +14,26 @@ export function createCVButton(variant: 'primary' | 'secondary' = 'secondary'): 
   return link;
 }
 
-export function createSocialLinks(className = '', iconSize = 20): HTMLUListElement {
+function createSocialLinks(
+  className = '',
+  iconSize = 20,
+  options?: { includeEmailCopy?: boolean },
+): HTMLUListElement {
   const list = document.createElement('ul');
   list.className = `social-links${className ? ` ${className}` : ''}`;
+
+  if (options?.includeEmailCopy) {
+    const item = document.createElement('li');
+    const button = document.createElement('button');
+    button.type = 'button';
+    button.className = 'social-link social-link--copy-email copy-email-btn';
+    button.dataset.email = profile.email;
+    button.setAttribute('aria-label', 'Copy email address');
+    button.appendChild(uiIcon('mail', iconSize, 'social-link__icon social-link__icon--mail'));
+    button.appendChild(uiIcon('check', iconSize, 'social-link__icon social-link__icon--check'));
+    item.appendChild(button);
+    list.appendChild(item);
+  }
 
   for (const link of socialLinks) {
     const item = document.createElement('li');
@@ -52,6 +52,32 @@ export function createSocialLinks(className = '', iconSize = 20): HTMLUListEleme
   }
 
   return list;
+}
+
+export function createSocialLinksGroup(
+  className = '',
+  iconSize = 20,
+  options?: { includeEmailCopy?: boolean },
+): HTMLElement {
+  const root = document.createElement('div');
+  root.className = 'social-links-group';
+
+  if (options?.includeEmailCopy) {
+    root.dataset.copyEmailRoot = '';
+  }
+
+  root.appendChild(createSocialLinks(className, iconSize, options));
+
+  if (options?.includeEmailCopy) {
+    const feedback = document.createElement('span');
+    feedback.className = 'copy-email-feedback';
+    feedback.setAttribute('role', 'status');
+    feedback.setAttribute('aria-live', 'polite');
+    feedback.hidden = true;
+    root.appendChild(feedback);
+  }
+
+  return root;
 }
 
 export function createThemeToggle(): HTMLButtonElement {

@@ -1,5 +1,4 @@
 import { skillCategories } from '../data/skills';
-import { createTechChip } from './shared';
 
 export function renderSkills(container: HTMLElement): void {
   const section = document.createElement('section');
@@ -33,8 +32,11 @@ export function renderSkills(container: HTMLElement): void {
 
     const chips = document.createElement('div');
     chips.className = 'section-panel__body skills__chips';
-    category.items.forEach((item) => {
-      chips.appendChild(createTechChip(item));
+    category.items.forEach((name) => {
+      const chip = document.createElement('span');
+      chip.className = 'tech-chip';
+      chip.textContent = name;
+      chips.appendChild(chip);
     });
 
     block.append(title, chips);

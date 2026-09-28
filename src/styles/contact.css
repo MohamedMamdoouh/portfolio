@@ -13,6 +13,7 @@
   display: flex;
   flex-wrap: wrap;
   align-items: center;
+  justify-content: center;
   gap: var(--space-3) var(--space-4);
 }
 
@@ -22,47 +23,30 @@
   letter-spacing: 0.04em;
   text-transform: uppercase;
   color: var(--color-text-muted);
-  margin-right: auto;
+  margin: 0;
 }
 
-.contact__email-group {
+.contact__actions {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  gap: var(--space-2);
+  justify-content: center;
+  gap: var(--space-3);
 }
 
-.contact__email {
-  font-size: 0.9375rem;
-  font-weight: 600;
-  letter-spacing: -0.01em;
+.social-links-group[data-copy-email-root] {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-3);
 }
 
-.contact__at::before {
-  content: '@';
-}
-
-.contact__copy-btn {
-  padding: 0.375rem 0.75rem;
-  font-size: 0.75rem;
-  min-height: 2rem;
-}
-
-.contact__copy-label {
-  display: none;
-}
-
-#copy-email-btn .check-icon {
-  display: none;
-  color: var(--color-success);
-}
-
-#copy-email-btn.copied .copy-icon {
-  display: none;
-}
-
-#copy-email-btn.copied .check-icon {
-  display: block;
+.copy-email-feedback {
+  font-size: 0.8125rem;
+  font-weight: 500;
+  color: var(--color-accent);
+  white-space: nowrap;
 }
 
 .contact__social {
@@ -76,6 +60,31 @@
   height: 2rem;
 }
 
+button.social-link {
+  cursor: pointer;
+  font: inherit;
+  padding: 0;
+}
+
+.copy-email-btn .social-link__icon--check {
+  display: none;
+  color: var(--color-accent);
+}
+
+.copy-email-btn.copied {
+  color: var(--color-accent);
+  border-color: color-mix(in srgb, var(--color-accent) 30%, var(--color-border));
+  background: var(--color-accent-muted);
+}
+
+.copy-email-btn.copied .social-link__icon--mail {
+  display: none;
+}
+
+.copy-email-btn.copied .social-link__icon--check {
+  display: block;
+}
+
 @media (min-width: 640px) {
   .contact__bar {
     flex-wrap: nowrap;
@@ -83,31 +92,18 @@
   }
 
   .contact__label {
-    margin-right: 0;
     flex-shrink: 0;
-  }
-
-  .contact__email-group {
-    flex: 1;
-    min-width: 0;
-  }
-
-  .contact__copy-label {
-    display: inline;
-  }
-
-  .contact__copy-btn {
-    padding: 0.375rem 0.625rem;
   }
 }
 
 @media (max-width: 639px) {
   .contact__bar {
     flex-direction: column;
-    align-items: flex-start;
+    align-items: center;
+    text-align: center;
   }
 
-  .contact__social {
+  .contact__actions {
     width: 100%;
     padding-top: var(--space-1);
     border-top: 1px solid var(--color-border);

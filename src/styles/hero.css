@@ -34,8 +34,12 @@
   margin-top: var(--space-1);
 }
 
-.hero__social {
+.hero__social-group {
   margin-top: var(--space-1);
+}
+
+.hero__social-group[data-copy-email-root] {
+  justify-content: flex-start;
 }
 
 .hero__visual {

@@ -50,7 +50,7 @@ function renderProjectFeature(project: Project, index: number): HTMLElement {
     liveLink.target = '_blank';
     liveLink.rel = 'noopener noreferrer';
     liveLink.className = 'btn btn-primary';
-    liveLink.append('Live Demo', uiIcon('external-link', 16));
+    liveLink.append('Live Production', uiIcon('external-link', 16));
 
     const githubLink = document.createElement('a');
     githubLink.href = project.githubUrl;

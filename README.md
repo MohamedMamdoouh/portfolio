@@ -1,6 +1,6 @@
 # Mohamed Mamdouh — Portfolio
 
-Personal portfolio website for Mohamed Mamdouh, a full-stack software engineer specializing in ASP.NET Core and Angular.
+Personal portfolio website for Mohamed Mamdouh, a full-stack .NET and Angular developer specializing in ASP.NET Core and modular frontends.
 
 ## Links
 
@@ -23,7 +23,7 @@ Sections appear in this order:
 1. **Hero** — name, role, positioning statement, profile photo, primary CTA, CV download, social links
 2. **About** — introduction and education in a labeled panel
 3. **Skills** — grouped stacks (backend, frontend, database, tools, concepts) with brand icons
-4. **Projects** — two featured full-stack systems (Shora, MechanicShop) with problem context and highlights
+4. **Projects** — four selected systems (Amanah, Shora, MechanicShop, DVLD) with problem context and highlights
 5. **Contact** — compact footer bar with email, copy-to-clipboard, and social links
 
 Primary navigation links to **About**, **Skills**, and **Projects** (no separate Home link — the logo returns to the hero).
@@ -33,8 +33,8 @@ Primary navigation links to **About**, **Skills**, and **Projects** (no separate
 - Light / dark theme with `localStorage` persistence and system-preference fallback
 - Responsive navigation with mobile menu, scroll spy, and active section highlighting
 - Self-hosted [Inter](https://fontsource.org/fonts/inter) variable font via Fontsource
-- Technology logos from [simple-icons](https://simpleicons.org/)
-- SEO meta tags, Open Graph, Twitter cards, and JSON-LD structured data
+- Social icons from [simple-icons](https://simpleicons.org/)
+- SEO meta tags, Open Graph, and Twitter cards
 - Multi-page Vite build with a dedicated 404 page
 - Zero runtime dependencies beyond fonts and icons
 
@@ -60,14 +60,13 @@ vite.config.ts                    Vite config (base path, multi-page build)
 public/
   cv/mohamed-mamdouh-cv.pdf       downloadable CV
   images/profile/profile.png      profile photo
-  favicon.svg, favicon.ico        site icons
-  social-preview.png              Open Graph / Twitter card image
+  favicon.svg                     site icon
 
 src/
   data/                           content source of truth
     profile.ts                    name, bio, email, CV path, education
     projects.ts                   featured projects
-    skills.ts                     skill groups and items
+    skills.ts                     skill groups and technology lists
     nav.ts                        navigation links
     social.ts                     social profile URLs
   lib/                            base-path helper, icon utilities

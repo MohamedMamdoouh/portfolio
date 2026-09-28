@@ -1,72 +1,25 @@
 import type { SimpleIcon } from 'simple-icons';
-import {
-  siAngular,
-  siBootstrap,
-  siCss3,
-  siDocker,
-  siDotnet,
-  siFacebook,
-  siGit,
-  siGithub,
-  siGithubactions,
-  siHtml5,
-  siJavascript,
-  siJsonwebtokens,
-  siLinkedin,
-  siMongodb,
-  siPostgresql,
-  siPostman,
-  siSwagger,
-  siTailwindcss,
-  siTypescript,
-  siX,
-  siYoutube,
-} from 'simple-icons';
+import { siFacebook, siGithub, siLinkedin, siX, siYoutube } from 'simple-icons';
 
 export type UiIconName =
-  | 'sun'
-  | 'moon'
-  | 'menu'
-  | 'close'
-  | 'copy'
-  | 'check'
-  | 'chevron-down'
-  | 'external-link'
-  | 'download';
+  'sun' | 'moon' | 'menu' | 'close' | 'check' | 'mail' | 'external-link' | 'download';
 
 const uiIconPaths: Record<UiIconName, string> = {
   sun: '<circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/>',
   moon: '<path d="M20 14.5A8.5 8.5 0 1 1 9.5 4a7 7 0 0 0 10.5 10.5Z"/>',
   menu: '<path d="M3 6h18M3 12h18M3 18h18"/>',
   close: '<path d="M6 6l12 12M18 6L6 18"/>',
-  copy: '<rect x="9" y="9" width="12" height="12" rx="2"/><path d="M5 15V5a2 2 0 0 1 2-2h10"/>',
   check: '<path d="M20 6L9 17l-5-5"/>',
-  'chevron-down': '<path d="M6 9l6 6 6-6"/>',
+  mail: '<path d="M4 6h16v12H4z"/><path d="m4 6 8 6 8-6"/>',
   'external-link':
     '<path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><path d="M15 3h6v6"/><path d="M10 14L21 3"/>',
   download: '<path d="M12 3v12"/><path d="M7 10l5 5 5-5"/><path d="M5 21h14"/>',
 };
 
 const brandIcons: Record<string, SimpleIcon> = {
-  angular: siAngular,
-  bootstrap: siBootstrap,
-  css3: siCss3,
-  docker: siDocker,
-  dotnet: siDotnet,
   facebook: siFacebook,
-  git: siGit,
   github: siGithub,
-  githubactions: siGithubactions,
-  html5: siHtml5,
-  javascript: siJavascript,
-  jsonwebtokens: siJsonwebtokens,
   linkedin: siLinkedin,
-  mongodb: siMongodb,
-  postgresql: siPostgresql,
-  postman: siPostman,
-  swagger: siSwagger,
-  tailwindcss: siTailwindcss,
-  typescript: siTypescript,
   x: siX,
   youtube: siYoutube,
 };

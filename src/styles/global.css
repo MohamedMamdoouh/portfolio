@@ -15,7 +15,6 @@
   --color-accent-strong: #1d4ed8;
   --color-accent-muted: color-mix(in srgb, var(--color-accent) 10%, transparent);
   --color-accent-contrast: #ffffff;
-  --color-success: #059669;
 
   --shadow-sm: 0 1px 2px rgba(17, 24, 39, 0.04);
   --shadow-md: 0 4px 16px rgba(17, 24, 39, 0.07);
@@ -62,7 +61,6 @@
   --color-accent-strong: #93c5fd;
   --color-accent-muted: color-mix(in srgb, var(--color-accent) 14%, transparent);
   --color-accent-contrast: #0f1115;
-  --color-success: #34d399;
 
   --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.25);
   --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.35);

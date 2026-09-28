@@ -1,77 +1,46 @@
-import type { TechItem } from './projects';
-
 export interface SkillCategory {
   name: string;
-  items: TechItem[];
+  items: string[];
 }
 
 export const skillCategories: SkillCategory[] = [
   {
     name: 'Backend',
     items: [
-      { name: 'C#' },
-      { name: 'ASP.NET Core Web API', iconSlug: 'dotnet' },
-      { name: 'Entity Framework Core' },
-      { name: 'REST APIs' },
-      { name: 'ASP.NET Identity' },
-      { name: 'JWT Authentication', iconSlug: 'jsonwebtokens' },
-      { name: 'Role-Based Authorization' },
-      { name: 'Middleware' },
-      { name: 'Clean Architecture' },
-      { name: 'DDD' },
-      { name: 'CQRS' },
-      { name: 'MediatR' },
-      { name: 'SignalR' },
-      { name: 'FluentValidation' },
-      { name: 'Background Services' },
-      { name: 'Caching' },
-      { name: 'Dependency Injection' },
-      { name: 'Unit & Integration Testing' },
+      'C#',
+      'ASP.NET Core Web API',
+      'Entity Framework Core',
+      'REST APIs',
+      'ASP.NET Identity',
+      'JWT Authentication',
+      'Role-Based Authorization',
+      'Middleware',
+      'Clean Architecture',
+      'DDD',
+      'CQRS',
+      'MediatR',
+      'SignalR',
+      'FluentValidation',
+      'Background Services',
+      'Caching',
+      'Dependency Injection',
+      'Unit & Integration Testing',
     ],
   },
   {
     name: 'Frontend',
-    items: [
-      { name: 'Angular', iconSlug: 'angular' },
-      { name: 'TypeScript', iconSlug: 'typescript' },
-      { name: 'JavaScript', iconSlug: 'javascript' },
-      { name: 'HTML', iconSlug: 'html5' },
-      { name: 'CSS', iconSlug: 'css3' },
-      { name: 'Bootstrap', iconSlug: 'bootstrap' },
-      { name: 'Tailwind CSS', iconSlug: 'tailwindcss' },
-    ],
+    items: ['Angular', 'TypeScript', 'JavaScript', 'HTML', 'CSS', 'Bootstrap', 'Tailwind CSS'],
   },
   {
     name: 'Database',
-    items: [
-      { name: 'SQL' },
-      { name: 'T-SQL' },
-      { name: 'ADO.NET' },
-      { name: 'MongoDB', iconSlug: 'mongodb' },
-      { name: 'Database Design' },
-      { name: 'Query Optimization' },
-    ],
+    items: ['SQL', 'T-SQL', 'ADO.NET', 'MongoDB', 'Database Design', 'Query Optimization'],
   },
   {
     name: 'Tools',
-    items: [
-      { name: 'Git', iconSlug: 'git' },
-      { name: 'GitHub', iconSlug: 'github' },
-      { name: 'Docker', iconSlug: 'docker' },
-      { name: 'Postman', iconSlug: 'postman' },
-      { name: 'Swagger', iconSlug: 'swagger' },
-      { name: 'CI/CD basics' },
-    ],
+    items: ['Git', 'GitHub', 'Docker', 'Postman', 'Swagger', 'CI/CD basics'],
   },
   {
     name: 'Concepts',
-    items: [
-      { name: 'OOP' },
-      { name: 'SOLID Principles' },
-      { name: 'Design Patterns' },
-      { name: 'Clean Code' },
-      { name: 'Problem Solving' },
-      { name: 'Agile' },
-    ],
+    items: ['OOP', 'SOLID Principles', 'Design Patterns', 'Clean Code', 'Problem Solving', 'SDLC'],
   },
 ];

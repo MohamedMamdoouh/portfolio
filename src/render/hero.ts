@@ -1,5 +1,5 @@
 import { profile } from '../data/profile';
-import { createCVButton, createSocialLinks } from './shared';
+import { createCVButton, createSocialLinksGroup } from './shared';
 import { decorativeIllustration } from '../lib/icons';
 
 export function renderHero(container: HTMLElement): void {
@@ -23,7 +23,9 @@ export function renderHero(container: HTMLElement): void {
   const actions = document.createElement('div');
   actions.className = 'hero__actions';
   actions.appendChild(createCVButton('primary'));
-  content.append(heading, positioning, actions, createSocialLinks('hero__social'));
+  const social = createSocialLinksGroup('hero__social', 20, { includeEmailCopy: true });
+  social.classList.add('hero__social-group');
+  content.append(heading, positioning, actions, social);
 
   const visual = document.createElement('div');
   visual.className = 'hero__visual';
