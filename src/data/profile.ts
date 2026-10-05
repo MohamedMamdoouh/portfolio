@@ -4,7 +4,6 @@ export const profile = {
   name: 'Mohamed Mamdouh',
   positioning:
     'Software Engineer focused on building full-stack web applications with .NET and Angular.',
-  location: 'Cairo, Egypt',
   email: 'mohamedmamdouh3550@gmail.com',
   cvPath: withBase('cv/mohamed-mamdouh-cv.pdf'),
   cvFileName: 'mohamed-mamdouh-cv.pdf',

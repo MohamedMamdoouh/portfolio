@@ -66,15 +66,7 @@ export function renderAbout(container: HTMLElement): void {
   const year = document.createElement('span');
   year.textContent = education.graduationYear;
 
-  const locationSeparator = document.createElement('span');
-  locationSeparator.className = 'about__meta-sep';
-  locationSeparator.setAttribute('aria-hidden', 'true');
-  locationSeparator.textContent = '·';
-
-  const location = document.createElement('span');
-  location.textContent = profile.location;
-
-  meta.append(institution, yearSeparator, year, locationSeparator, location);
+  meta.append(institution, yearSeparator, year);
   educationContent.append(degree, meta);
   educationRow.append(educationHeading, educationContent);
 

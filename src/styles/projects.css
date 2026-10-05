@@ -71,22 +71,63 @@
   line-height: 1.65;
 }
 
-.project__highlights {
-  display: flex;
-  flex-wrap: wrap;
-  gap: var(--space-2);
-  margin-top: var(--space-4);
+/* Engineering notes: labelled two-column ledger */
+.project__notes {
+  margin-top: var(--space-5);
 }
 
-.project__highlights li {
+.project__notes-title {
+  font-size: 0.6875rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+}
+
+.project__notes-list {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  column-gap: var(--space-6);
+  margin: var(--space-3) 0 0;
+}
+
+.project__note {
+  position: relative;
+  padding: var(--space-3) 0 var(--space-4);
+  border-top: 1px solid var(--color-border);
+}
+
+/* Short accent segment on the hairline marks each note's start */
+.project__note::before {
+  content: '';
+  position: absolute;
+  top: -1px;
+  left: 0;
+  width: 1.5rem;
+  height: 2px;
+  background: var(--color-accent);
+}
+
+.project__note dt {
+  font-family: ui-monospace, 'Cascadia Code', 'SF Mono', Menlo, Consolas, monospace;
   font-size: 0.75rem;
   font-weight: 600;
-  letter-spacing: 0.01em;
+  letter-spacing: 0.02em;
   color: var(--color-accent);
-  background: var(--color-accent-muted);
-  padding: 0.375rem 0.75rem;
-  border-radius: var(--radius-full);
-  border: 1px solid color-mix(in srgb, var(--color-accent) 18%, transparent);
+}
+
+.project__note dd {
+  margin: var(--space-1) 0 0;
+  font-size: 0.875rem;
+  line-height: 1.6;
+  color: var(--color-text);
+  text-wrap: pretty;
+}
+
+@media (max-width: 720px) {
+  .project__notes-list {
+    grid-template-columns: minmax(0, 1fr);
+  }
 }
 
 .project__actions {

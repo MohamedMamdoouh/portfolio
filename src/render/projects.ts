@@ -33,13 +33,30 @@ function renderProjectFeature(project: Project, index: number): HTMLElement {
 
   meta.appendChild(problemDiv);
 
-  const highlights = document.createElement('ul');
-  highlights.className = 'project__highlights';
-  project.highlights.forEach((highlight) => {
-    const li = document.createElement('li');
-    li.textContent = highlight;
-    highlights.appendChild(li);
+  const notes = document.createElement('div');
+  notes.className = 'project__notes';
+
+  const notesTitle = document.createElement('h4');
+  notesTitle.className = 'project__notes-title';
+  notesTitle.textContent = 'Engineering notes';
+
+  const notesList = document.createElement('dl');
+  notesList.className = 'project__notes-list';
+  project.highlights.forEach(({ label, detail }) => {
+    const row = document.createElement('div');
+    row.className = 'project__note';
+
+    const dt = document.createElement('dt');
+    dt.textContent = label;
+
+    const dd = document.createElement('dd');
+    dd.textContent = detail;
+
+    row.append(dt, dd);
+    notesList.appendChild(row);
   });
+
+  notes.append(notesTitle, notesList);
 
   const actions = document.createElement('div');
   actions.className = 'project__actions';
@@ -70,7 +87,7 @@ function renderProjectFeature(project: Project, index: number): HTMLElement {
     actions.appendChild(githubLink);
   }
 
-  body.append(indexLabel, title, description, meta, highlights, actions);
+  body.append(indexLabel, title, description, meta, notes, actions);
   article.appendChild(body);
 
   return article;
@@ -94,12 +111,7 @@ export function renderProjects(container: HTMLElement): void {
   const heading = document.createElement('h2');
   heading.textContent = 'Selected Work';
 
-  const summary = document.createElement('p');
-  summary.className = 'text-muted';
-  summary.textContent =
-    'A selection of full-stack work I have designed and built end to end — ASP.NET Core backends with clean, tested architecture, paired with Angular frontends built to the same standard.';
-
-  intro.append(eyebrow, heading, summary);
+  intro.append(eyebrow, heading);
 
   const orderedProjects = [...projects].sort((a, b) => a.order - b.order);
   orderedProjects.forEach((project, i) => {
