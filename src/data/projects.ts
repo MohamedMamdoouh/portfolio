@@ -17,39 +17,39 @@ export const projects: Project[] = [
   {
     name: 'Amanah – Lost & Found Platform',
     description:
-      'Full-stack production lost-and-found platform, handling report submissions, moderation queues, ownership claims, and real-time chat.',
+      'Full-stack lost-and-found platform that connects people who lost items with finders through moderated listings, structured ownership claims, and in-app chat.',
     problem:
-      'Communities need a trusted way to report lost or found items, verify ownership safely, and coordinate returns with moderation and messaging.',
+      'People who lose items and those who find them need a trusted place to list items, verify ownership, and coordinate returns with moderation and messaging.',
     highlights: [
       {
-        label: 'Reliability',
+        label: 'API reliability',
         detail:
-          'Correlation IDs, centralized exception handling, field-level validation, rate limiting, HybridCache, structured logging, and PostgreSQL/R2 readiness checks.',
+          'Centralized exception handling, correlation IDs, validation, rate limiting, HybridCache, structured logging, and dependency health checks.',
       },
       {
         label: 'Auth',
         detail:
-          'Phone/email OTP registration, password sign-in, short-lived JWTs, and httpOnly refresh cookies.',
+          'Phone/email OTP registration, password authentication, short-lived JWT access tokens, and HTTP-only refresh cookies for session persistence.',
       },
       {
         label: 'Frontend',
         detail:
-          'Angular UI with RTL/Arabic support, reactive forms, EXIF stripping, and client-side WebP processing before Cloudflare R2 upload.',
+          'Responsive Arabic RTL interfaces with reactive forms, EXIF metadata stripping, and client-side WebP image processing before storage uploads.',
       },
       {
         label: 'Realtime',
         detail:
-          'Bidirectional SignalR chat with REST fallback and a transactional outbox for reliable SMS and email dispatch.',
+          'SignalR chat with REST fallback and a transactional outbox for reliable SMS and email dispatch.',
       },
       {
         label: 'Background jobs',
         detail:
-          'Workers for listing expiration, claim timeouts, orphaned storage cleanup, and scheduled maintenance.',
+          'Workers for listing expiration, claim timeouts, storage cleanup, and scheduled maintenance.',
       },
       {
         label: 'Testing',
         detail:
-          'xUnit and Testcontainers integration tests on isolated PostgreSQL instances in GitHub Actions CI.',
+          'Integration tests with xUnit and Testcontainers using isolated database instances, integrated into GitHub Actions CI pipelines.',
       },
     ],
     githubUrl: 'https://github.com/MohamedMamdoouh/amanah-platform',
@@ -81,7 +81,7 @@ export const projects: Project[] = [
       {
         label: 'Frontend',
         detail:
-          'Role-based Angular standalone SPA with signals, lazy routes, guards, typed API contracts, and RTL; deployed with Docker, Supabase PostgreSQL, and Cloudflare R2.',
+          'Role-based Angular standalone SPA using signals, lazy routes, guards, typed API contracts, and RTL, deployed with Docker, Supabase PostgreSQL, and Cloudflare R2.',
       },
       {
         label: 'Operations',
@@ -103,27 +103,22 @@ export const projects: Project[] = [
       {
         label: 'Architecture',
         detail:
-          'Clean Architecture with CQRS/MediatR, Result Pattern, FluentValidation, and pipeline behaviors for validation, logging, transactions, and caching.',
-      },
-      {
-        label: 'Domain',
-        detail:
-          'Rich aggregates for work orders, shop-day scheduling, labor assignment, repair tasks, and invoicing.',
+          'Clean Architecture backend with CQRS/MediatR, Result pattern, FluentValidation, and pipeline behaviors for validation, logging, transactions, and caching.',
       },
       {
         label: 'Auth',
         detail:
-          'JWT auth with rotating refresh tokens, per-device sessions, RBAC, and custom authorization for assigned mechanics.',
+          'Secure JWT authentication with rotating refresh tokens, per-device sessions, reuse detection, RBAC, and custom policies.',
       },
       {
-        label: 'Concurrency',
+        label: 'Domain',
         detail:
-          'Optimistic concurrency, Problem Details, output caching, rate limiting, and SQL Server application locks.',
+          'Work orders, day scheduling, labor assignment, and invoicing with optimistic concurrency.',
       },
       {
         label: 'Testing',
         detail:
-          'Unit and integration tests with Testcontainers and separate GitHub Actions CI jobs.',
+          'Unit and API integration tests with Testcontainers and separate GitHub Actions CI jobs.',
       },
     ],
     githubUrl: 'https://github.com/MohamedMamdoouh/MechanicShop',
@@ -139,22 +134,17 @@ export const projects: Project[] = [
       {
         label: 'Architecture',
         detail:
-          'Layered WinForms solution in .NET Framework separating UI, business logic, and data access.',
+          '3-tier desktop solution using C# and WinForms, enforcing clean separation between UI, domain logic, and data access layers.',
       },
       {
         label: 'Data',
         detail:
-          'SQL Server via ADO.NET and parameterized stored procedures for CRUD, lookups, and rule-driven validation.',
-      },
-      {
-        label: 'Domain',
-        detail:
-          'Licensing domain modeling and rules administration enforced at application and exam stages.',
+          'SQL Server via ADO.NET and parameterized stored procedures to execute secure entity operations and rule-driven validation queries.',
       },
       {
         label: 'Workflows',
         detail:
-          'License transactions, vision/written/street testing with retakes, and password-hashed user access.',
+          'Core licensing workflows, including a 3-stage exam system (scheduling, grading, retakes).',
       },
     ],
     githubUrl: 'https://github.com/MohamedMamdoouh/driver-vehicle-license-department-system',
