@@ -57,35 +57,36 @@ export const projects: Project[] = [
     order: 1,
   },
   {
-    name: 'Shora – Full-Stack Consulting & Booking Platform',
+    name: 'Shora – Consulting & Booking Platform',
     description:
       'Full-stack production booking platform for one-to-one consulting sessions with availability management, manual payment verification, client bookings, and admin operations.',
     problem:
       'Consultants need a reliable way to publish availability, take bookings, and verify payments manually while giving clients a smooth booking experience and admins full operational control.',
     highlights: [
       {
-        label: 'Architecture',
+        label: 'Concurrency',
         detail:
-          'Clean Architecture with a .NET API, EF Core/PostgreSQL, and an Angular standalone SPA shipped in a single Docker image.',
+          'Prevented double-booking with PostgreSQL row locks, transactions, and partial unique indexes; modeled booking/payment lifecycles with state machines and audit trails.',
       },
       {
-        label: 'Auth',
+        label: 'Payments',
         detail:
-          'JWT access tokens with rotating httpOnly refresh tokens, row locking, reuse detection, and secure session restoration.',
+          'Manual payment verification for Vodafone Cash/InstaPay with receipt validation, SHA-256 duplicate detection, and secure presigned URLs.',
       },
       {
-        label: 'Bookings',
+        label: 'Scheduling',
         detail:
-          'Slot holds, concurrency control, expiry jobs, and manual payment workflows with receipt verification and refunds.',
+          'Recurring availability, blocked dates, booking-hold limits, payment deadlines, and cancellation rules.',
       },
       {
-        label: 'Platform',
+        label: 'Frontend',
         detail:
-          'Transactional email outbox, private Cloudflare R2 storage, background workers, rate limiting, caching, and Problem Details.',
+          'Role-based Angular standalone SPA with signals, lazy routes, guards, typed API contracts, and RTL; deployed with Docker, Supabase PostgreSQL, and Cloudflare R2.',
       },
       {
-        label: 'Testing',
-        detail: 'xUnit integration tests with Testcontainers PostgreSQL and automated CI workflows.',
+        label: 'Operations',
+        detail:
+          'Job monitoring, admin alerts, API error codes, and earnings reporting for gross, refunded, and net revenue.',
       },
     ],
     githubUrl: 'https://github.com/MohamedMamdoouh/shora-consulting-platform',
