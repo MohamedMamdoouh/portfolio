@@ -9,7 +9,7 @@ export const profile = {
   cvFileName: 'mohamed-mamdouh-cv.pdf',
   imagePath: withBase('images/profile/profile.png'),
   introduction:
-    'Full-Stack .NET & Angular Developer focused on building scalable web applications with ASP.NET Core, Clean Architecture, and Angular. Skilled in writing clean, maintainable, and testable code.',
+    'Full-Stack .NET & Angular Developer experienced in building production web applications with ASP.NET Core, Angular, SQL. Strong in API design, secure authentication, Clean Architecture, testing, and CI/CD pipelines.',
 } as const;
 
 export const education = {
